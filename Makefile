@@ -10,3 +10,6 @@ contract:
 	terraform plan -out $(TFPLAN)
 	terraform show -json $(TFPLAN) > $(TFPLAN).json
 	conftest test -p test/conftest/subnet-contract.rego $(TFPLAN).json
+
+integration:
+	cd test/terratest; go test -timeout 20m -v -run TestTerraformAwsRds

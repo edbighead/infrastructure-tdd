@@ -9,3 +9,8 @@ variable "vpc_cidr" {
   default     = "10.1.0.0/16"
   description = "VPC CIDR block"
 }
+
+variable "db_name" {
+  type        = string
+  default     = "mydb"
+}
