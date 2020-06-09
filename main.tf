@@ -4,12 +4,22 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.1.0/8"
+  cidr_block = "10.1.1.0/24"
 
   tags = {
     Name = "public"
   }
 }
+
+resource "aws_subnet" "private" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = cidrsubnet(var.vpc_cidr, 8, 2)
+
+  tags = {
+    Name = "private"
+  }
+}
+
 
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
