@@ -13,3 +13,6 @@ contract:
 
 integration:
 	cd test/terratest; go test -timeout 20m -v -run TestTerraformAwsRds
+
+cost:
+	./test/cost/check.sh "10.0"
