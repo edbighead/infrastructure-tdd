@@ -1,10 +1,10 @@
 TFPLAN = tfplan
 
 unit:
-	tflint main.tf
+	tflint -c test/tflint/tflint.hcl
 	conftest test -p test/conftest/vpc.rego main.tf
-	conftest test -p test/conftest/subnet.rego main.tf
-	conftest test -p test/conftest/ec2.rego main.tf
+	# conftest test -p test/conftest/subnet.rego main.tf
+	# conftest test -p test/conftest/ec2.rego main.tf
 
 contract:
 	terraform plan -out $(TFPLAN)

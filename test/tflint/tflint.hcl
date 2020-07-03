@@ -1,4 +1,4 @@
-rule "aws_resource_missing_tags" {
+rule "terraform_naming_convention" {
   enabled = true
-  tags = ["Env"]
+  format = "snake_case"
 }
